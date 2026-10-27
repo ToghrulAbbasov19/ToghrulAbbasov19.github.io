@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toghrul Abbasov</title>
+  <meta name="description" content="Toghrul Abbasov: CS and Mathematics undergraduate at KAIST working on diffusion models, reinforcement learning and world models.">
+  <meta name="author" content="Toghrul Abbasov">
+
+  <!-- Fonts: Newsreader for headings, Source Sans 3 for text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Colors (light, then dark) ---------- */
+    :root {
+      --bg: #fbfbfa;
+      --text: #1d2228;
+      --muted: #5b6470;
+      --line: #e4e6e9;
+      --accent: #1f4e79;      /* navy, same as the CV */
+      --accent-soft: #e9f0f7;
+      --card: #ffffff;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171b;
+        --text: #e5e8ec;
+        --muted: #9aa3ae;
+        --line: #2a3038;
+        --accent: #8ab6e3;
+        --accent-soft: #1c2836;
+        --card: #1a1e23;
+      }
+    }
+
+    /* ---------- Base ---------- */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 56px 20px 40px; }
+
+    /* ---------- Header ---------- */
+    .intro { display: grid; grid-template-columns: 1fr 180px; gap: 40px; align-items: start; }
+    h1 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 42px;
+      line-height: 1.1;
+      margin: 0 0 6px;
+      letter-spacing: -0.01em;
+    }
+    .role { color: var(--muted); margin: 0 0 20px; }
+    .intro p { margin: 0 0 14px; max-width: 62ch; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-weight: 600; }
+    .email { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 15px; color: var(--muted); margin-top: 10px; }
+    .photo {
+      width: 180px; height: 180px; border-radius: 50%;
+      object-fit: cover; border: 1px solid var(--line);
+      background: var(--accent-soft);
+    }
+    .photo-fallback {
+      width: 180px; height: 180px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--accent-soft); color: var(--accent);
+      font-family: var(--serif); font-size: 56px; font-weight: 600;
+    }
+
+    /* ---------- Sections ---------- */
+    section { margin-top: 52px; }
+    h2 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 26px;
+      margin: 0 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .legend { color: var(--muted); font-size: 14px; margin: -8px 0 18px; }
+
+    /* Papers */
+    .papers { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+    .paper { display: grid; grid-template-columns: 44px 1fr; gap: 6px; }
+    .tag {
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      background: var(--accent-soft); border-radius: 4px;
+      height: fit-content; text-align: center; padding: 1px 0; margin-top: 3px;
+    }
+    .paper-title { font-weight: 600; margin: 0; line-height: 1.4; }
+    .authors { color: var(--muted); margin: 2px 0; font-size: 15.5px; }
+    .me { color: var(--text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .venue { font-style: italic; font-size: 15.5px; }
+    .paper-links { display: inline-flex; gap: 12px; margin-left: 10px; font-style: normal; font-size: 15px; }
+
+    /* Experience / teaching entries */
+    .entries { display: grid; gap: 22px; }
+    .entry-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; }
+    .entry-title { font-weight: 600; margin: 0; }
+    .date { color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .entry-sub { color: var(--muted); font-style: italic; margin: 0 0 4px; font-size: 15.5px; }
+    .entry ul { margin: 4px 0 0; padding-left: 20px; }
+    .entry li { margin: 2px 0; }
+    .entry li::marker { color: var(--muted); }
+
+    /* Honors table */
+    .honors { width: 100%; border-collapse: collapse; }
+    .honors td { padding: 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .honors tr:last-child td { border-bottom: 0; }
+    .honors .yr { width: 84px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .honors .medal { font-weight: 600; }
+    .honors .where { text-align: right; color: var(--muted); white-space: nowrap; padding-left: 12px; }
+
+    /* Collapsible coursework */
+    details { margin-top: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+    summary { cursor: pointer; padding: 10px 14px; font-weight: 600; }
+    .courses { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; padding: 2px 14px 14px; }
+    .courses h3 { font-size: 15px; margin: 8px 0 4px; color: var(--accent); }
+    .courses ul { margin: 0; padding-left: 18px; font-size: 15.5px; }
+
+    footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+    /* ---------- Phone layout ---------- */
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .wrap { padding-top: 32px; }
+      .intro { grid-template-columns: 1fr; gap: 20px; }
+      .intro .pic { order: -1; }
+      .photo, .photo-fallback { width: 120px; height: 120px; font-size: 40px; }
+      h1 { font-size: 34px; }
+      .courses { grid-template-columns: 1fr; }
+      .honors .where { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <!-- ================= INTRO ================= -->
+  <header class="intro">
+    <div>
+      <h1>Toghrul Abbasov</h1>
+      <p class="role">Undergraduate in Computer Science and Mathematics, KAIST</p>
+
+      <p>
+        I am a final-year undergraduate at KAIST, studying Computer Science and Mathematics.
+      </p>
+      <p>
+        My research focuses on <strong>generative models</strong>, especially
+        <strong>diffusion models</strong>, and on using them for decision-making:
+        policy gradient methods, world models and agents.
+      </p>
+      <p>
+        I also come from mathematical olympiads: I won two IMO medals and was
+        Azerbaijan's team leader at IMO 2025.
+      </p>
+      <p><strong>I am applying to PhD programs for Fall 2027.</strong></p>
+
+      <nav class="links" aria-label="Links">
+        <!-- Replace YOUR_ID with the part after "user=" in your Scholar profile URL -->
+        <a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a>
+        <a href="https://github.com/ToghrulAbbasov19">GitHub</a>
+        <a href="https://www.linkedin.com/in/toghrul-abbasov">LinkedIn</a>
+      </nav>
+      <div class="email">toqrul.abbasov2004 [at] gmail [dot] com</div>
+    </div>
+
+    <div class="pic">
+      <!-- Upload your photo as profile.jpg. Until then, your initials are shown. -->
+      <img class="photo" src="profile.jpg" alt="Photo of Toghrul Abbasov"
+           onerror="this.outerHTML='<div class=&quot;photo-fallback&quot; aria-hidden=&quot;true&quot;>TA</div>'">
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= PUBLICATIONS ================= -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="legend">W: workshop, * equal contribution</p>
+
+      <ol class="papers">
+        <li class="paper">
+          <span class="tag">W1</span>
+          <div>
+            <p class="paper-title">Precision-Aware Automated Discovery of Numerical Function Approximations via Landscape-Adaptive Search and LLM Agents</p>
+            <p class="authors">
+              <span class="me">Toghrul Abbasov</span>*, Limeng Zhang*, Zhihang Lin, Zhenyang Xiao, Xiaoxiao Tu,
+              Zirong Zeng, Wentao Lin, Lingchao Zheng, Jun Li, Yuwei Fan, Tian Ding, Congliang Chen, Ruoyu Sun
+            </p>
+            <div class="venue">ICML 2026 AI4Math Workshop (Poster)
+              <!-- <span class="paper-links"><a href="LINK">Paper</a><a href="LINK">Poster</a></span> -->
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ================= TEACHING ================= -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="entries">
+
+        <div class="entry">
+          <div class="entry-head">
+            <p class="entry-title">Ministry of Education of Azerbaijan · Mathematical Society of South Eastern Europe</p>
+            <span class="date">Jul 2021 – Present</span>
+          </div>
+          <p class="entry-sub">Lecturer, Problem Proposer, Team Leader</p>
+          <ul>
+            <li>Team Leader of Azerbaijan at IMO 2025; took part in problem selection and coordination</li>
+            <li>Proposed a problem to the Junior Balkan Mathematical Olympiad, selected as its hardest combinatorics problem (C6)</li>
+            <li>Teach olympiad combinatorics, geometry, number theory and algebra, and run selection tests for international olympiads</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <p class="entry-title">Teaching Assistant, Discrete Mathematics (KAIST)</p>
+            <span class="date">Fall 2025, Spring 2026</span>
+          </div>
+          <p class="entry-sub">Instructor: Prof. Jinah Park</p>
+          <ul>
+            <li>Graded exams and homework; ran QAIST, where students write original problems, and chose the best ones for exams</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= HONORS ================= -->
+    <section id="honors">
+      <h2>Olympiad Awards</h2>
+      <table class="honors">
+        <tr><td class="yr">2022</td><td><span class="medal">Silver Medal</span>, International Mathematical Olympiad</td><td class="where">Norway</td></tr>
+        <tr><td class="yr">2021</td><td><span class="medal">Bronze Medal</span>, International Mathematical Olympiad</td><td class="where">Russia</td></tr>
+        <tr><td class="yr">2022</td><td><span class="medal">Silver Medal</span>, Balkan Mathematical Olympiad</td><td class="where">Cyprus</td></tr>
+        <tr><td class="yr">2020</td><td><span class="medal">Bronze Medal</span>, Balkan Mathematical Olympiad</td><td class="where">Romania</td></tr>
+        <tr><td class="yr">2020</td><td><span class="medal">Gold Medal</span>, Junior Balkan Mathematical Olympiad</td><td class="where">Greece</td></tr>
+        <tr><td class="yr">2020</td><td><span class="medal">Bronze Medal</span>, Cyberspace Mathematical Competition</td><td class="where">USA</td></tr>
+        <tr><td class="yr">2020–22</td><td><span class="medal">Gold Medal</span> (First of Firsts Award), National Mathematical Olympiad</td><td class="where">Azerbaijan</td></tr>
+      </table>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <p class="entry-title">KAIST, B.S. in Computer Science and Mathematics</p>
+          <span class="date">Aug 2022 – Jun 2027 (expected)</span>
+        </div>
+      </div>
+
+      <details>
+        <summary>Selected coursework</summary>
+        <div class="courses">
+          <div>
+            <h3>Mathematics</h3>
+            <ul>
+              <li>Analysis I</li>
+              <li>Topology</li>
+              <li>Modern Algebra I and II</li>
+              <li>Number Theory</li>
+              <li>Probability and Statistics</li>
+              <li>Introduction to Numerical Analysis</li>
+              <li>Graph Theory</li>
+              <li>Discrete Mathematics</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Computer Science</h3>
+            <ul>
+              <li>Introduction to Diffusion Models</li>
+              <li>Machine Learning for Computer Vision</li>
+              <li>Machine Learning</li>
+              <li>Introduction to Deep Learning</li>
+              <li>Artificial Intelligence and Machine Learning</li>
+              <li>Introduction to Algorithms</li>
+              <li>Data Structures</li>
+              <li>System Programming</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <footer>
+    Toghrul Abbasov · KAIST · Last updated October 2026
+  </footer>
+</div>
+</body>
+</html>
